@@ -1,0 +1,49 @@
+<!-- Chef complains if I don't use webhook_url in the markup, so we just do an unused assignment here. -->
+{% assign unused_webhook_url = {{trmnl.plugin_settings.custom_fields_values.webhook_url}} %}
+
+{% if list %}
+
+{% assign items = list.items %}
+{% assign number_of_columns = {{trmnl.plugin_settings.custom_fields_values.columns}} %}
+
+<div class="layout">
+  <div class="columns" data-overflow-max-cols="{{number_of_columns}}" data-overflow-counter="true">
+    <div class="column">
+      {% for item in items %}
+      <div class="item">
+        <div class="meta"></div>
+        <div class="content">
+          <span class="title title--small">{{ item }}</span>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<div class="title_bar">
+  <img class="image" src="https://usetrmnl.com/images/plugins/todo_list--render.svg">
+  <span class="title">{{list.name}}</span>
+  <span class="instance"></span>
+</div>
+
+{% else %}
+
+<div class="layout">
+  <div class="columns">
+    <div class="column">
+      <div class="content text--center">
+        <span class="title">No data yet...</span><br>
+        <span class="title title--small text--gray-2">Try updating the list in Home Assistant.</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="title_bar">
+  <img class="image" src="https://usetrmnl.com/images/plugins/todo_list--render.svg">
+  <span class="title">{{ trmnl.plugin_settings.instance_name }}</span>
+  <span class="instance"></span>
+</div>
+
+{% endif %}

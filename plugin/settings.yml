@@ -1,0 +1,48 @@
+---
+strategy: webhook
+no_screen_padding: 'no'
+dark_mode: 'no'
+static_data: ''
+polling_verb: get
+polling_url: ''
+polling_headers: ''
+polling_body: ''
+id: 227107
+custom_fields:
+- keyname: readme
+  name: About This Plugin
+  category: life,personal
+  field_type: author_bio
+  description: |
+    Display a <a href="https://www.home-assistant.io/integrations/todo/">Home Assistant to-do list</a> on your TRMNL device.
+    <br><br>
+    <strong>Setup</strong>
+    <br><br>
+    <b>1. </b>Start by importing this blueprint for Home Assistant:
+    <br><br>
+    <a href="https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fgist.github.com%2FCaptainProton42%2Fec5e048eb4babff2165b4e665f7d9f27" target="_blank" rel="noreferrer noopener"><b>Import blueprint to my Home Assistant</b></a>
+    <br><br>
+    <b>2. </b>You will also need to setup the <a href="https://www.home-assistant.io/integrations/rest_command/">RESTful Command</a> integration for Home Assistant. The blueprint installation dialogue will guide you through this process.
+    <br><br>
+    <b>3. </b>After you have imported the blueprint, go to your <a href="https://my.home-assistant.io/redirect/automations/">Home Assistant automations</a>, click "+ Create automation", and select the "Sync to-do list with TRMNL" blueprint. Then select the to-do list entity and paste the webhook URL.
+    <br><br>
+    You may have to update the shopping list once by adding or removing an item for it to display on your TRMNL.
+    <br><br>
+    <strong>Multiple Instances</strong>
+    <br><br>
+    Additional instances of this plugin (e.g. for a second to-do list) can be set up by following step 3 of the setup again.
+- keyname: webhook_url
+  field_type: copyable_webhook_url
+  name: Webhook URL
+  description: Paste this when setting up the automation from the blueprint.
+  help_text: This will populate once the plugin has been created/saved.
+- keyname: columns
+  field_type: number
+  name: Columns
+  min: 1
+  max: 4
+  step: 1
+  default: 2
+  description: Maximum number of columns to display.
+name: Home Assistant To-Do List
+refresh_interval: 15
